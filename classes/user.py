@@ -1,5 +1,4 @@
-from models.model import UserModel
-from migrations import users
+from models.model import UserModel, Geolocation
 
 
 class User:
@@ -9,7 +8,6 @@ class User:
         self.email = data.email
         self.password = data.password
         self.zip_code = data.zip_code
-
-    def save(self):
-        print("Inserindo {}".format(self.__dict__))
-        users.insert(self.__dict__)
+        self.born_date = data.born_date
+        self.city = data.city
+        self.geolocation = data.geolocation.dict()
