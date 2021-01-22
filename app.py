@@ -1,3 +1,5 @@
+import os
+
 from fastapi.responses import JSONResponse
 from fastapi import FastAPI, status
 from routes import user
@@ -16,4 +18,4 @@ async def root():
 
 if __name__ == '__main__':
     import uvicorn
-    uvicorn.run("app:app", host="0.0.0.0", port=5000)
+    uvicorn.run("app:app", host="0.0.0.0", port=os.environ.get("PORT", 5000))
